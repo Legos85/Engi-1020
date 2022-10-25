@@ -19,19 +19,33 @@ sampleCount1 = len(dataList1)
 
 # Procedure 2.2, implement statistics
 
-sumSamples = 0
+sumdata = 0
 
 # TODO 2.2 - Implement definite loop to calculate sumSamples
-#why do we have to use a loop for this :(
+
 for data in dataList1:
-    sumdata = dataList1[0] + dataList1[1] + dataList1[2] + dataList1[3] + dataList1[4] + dataList1[5] + dataList1[6] + dataList1[7] + dataList1[8] + dataList1[9]
+    sumdata += data
 
 # TODO 2.2 - Calculate average of samples
 
 average_sample = sumdata / sampleCount1
 
 # Procedure 2.3
+print(average_sample)
+print(dataList1)
 
+x = 0
 for element in dataList1:
-    print("Compare and manipulate!")
+    
+    if element > average_sample:
+        digital_write(4,True)
+        x += 1
+        sleep(1)
+        digital_write(4,False)
+        sleep(1)
+    else:
+        sleep(1)
+oled_print(x)
+sleep(5)
+oled_clear
     # TODO 2.3 - Manipulate output based on comparison!!
